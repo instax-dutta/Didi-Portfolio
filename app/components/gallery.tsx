@@ -36,7 +36,7 @@ export default function Gallery() {
     <section id="education" className="relative z-20 py-16 sm:py-20">
       <div ref={ref} className="container mx-auto px-4">
         <motion.h2
-          className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter text-primary"
+          className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
@@ -51,12 +51,12 @@ export default function Gallery() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <Card className="girly-shadow girly-border h-full">
+              <Card className="glass-effect h-full">
                 <CardContent className="p-4 sm:p-6 flex flex-col justify-between h-full">
-                  <h3 className="mb-2 text-lg sm:text-xl font-semibold text-primary">{edu.title}</h3>
+                  <h3 className="mb-2 text-lg sm:text-xl font-semibold text-gray-900">{edu.title}</h3>
                   <div>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{edu.institution}</p>
-                    <p className="mt-2 text-xs sm:text-sm text-muted-foreground">{edu.year}</p>
+                    <p className="text-xs sm:text-sm text-gray-600">{edu.institution}</p>
+                    <p className="mt-2 text-xs sm:text-sm text-gray-500">{edu.year}</p>
                   </div>
                 </CardContent>
               </Card>

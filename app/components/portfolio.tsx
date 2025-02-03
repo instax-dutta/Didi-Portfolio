@@ -60,7 +60,7 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative z-20 py-16 sm:py-20">
       <div className="container mx-auto px-4">
-        <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter text-primary">
+        <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
           Portfolio
         </h2>
         <div className="mb-8 sm:mb-12 flex flex-wrap justify-center gap-2 sm:gap-4">
@@ -69,7 +69,7 @@ export default function Portfolio() {
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
-              className="text-xs sm:text-sm capitalize girly-shadow"
+              className="text-xs sm:text-sm capitalize modern-shadow"
             >
               {category}
             </Button>
@@ -86,13 +86,13 @@ export default function Portfolio() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <Card className="girly-shadow girly-border h-full">
+                <Card className="glass-effect h-full">
                   <CardContent className="p-4 sm:p-6 flex flex-col justify-between h-full">
                     <div>
-                      <h3 className="mb-2 text-lg sm:text-xl font-semibold text-primary">{work.title}</h3>
-                      <p className="mb-4 text-xs sm:text-sm text-muted-foreground">{work.description}</p>
+                      <h3 className="mb-2 text-lg sm:text-xl font-semibold text-gray-900">{work.title}</h3>
+                      <p className="mb-4 text-xs sm:text-sm text-gray-600">{work.description}</p>
                     </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{work.year}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">{work.year}</p>
                   </CardContent>
                 </Card>
               </motion.div>

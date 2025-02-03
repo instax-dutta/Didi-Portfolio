@@ -46,11 +46,9 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter text-primary">
-            Get in Touch
-          </h2>
-          <p className="mb-8 text-sm sm:text-base text-muted-foreground">
-            Interested in collaborating on life sciences research or discussing potential opportunities? Let's connect!
+          <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Get in Touch</h2>
+          <p className="mb-8 text-sm sm:text-base text-gray-600">
+            Interested in collaborating on life sciences research, digital marketing, or SEO? Let's connect!
           </p>
         </motion.div>
         <motion.div
@@ -69,7 +67,7 @@ export default function Contact() {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your name" {...field} className="girly-shadow girly-border" />
+                      <Input placeholder="Your name" {...field} className="glass-effect" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -82,7 +80,7 @@ export default function Contact() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="your@email.com" {...field} className="girly-shadow girly-border" />
+                      <Input placeholder="your@email.com" {...field} className="glass-effect" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -97,7 +95,7 @@ export default function Contact() {
                     <FormControl>
                       <Textarea
                         placeholder="Tell me about your project..."
-                        className="min-h-[120px] girly-shadow girly-border"
+                        className="min-h-[120px] glass-effect"
                         {...field}
                       />
                     </FormControl>
@@ -105,19 +103,12 @@ export default function Contact() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full girly-shadow">
+              <Button type="submit" className="w-full glass-effect bg-blue-500 text-white hover:bg-blue-600">
                 Send Message
               </Button>
             </form>
           </Form>
         </motion.div>
-      </div>
-      <div className="absolute inset-0 z-0 opacity-30">
-        <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <line key={i} x1={i * 2} y1="0" x2={i * 2} y2="100" stroke="pink" strokeWidth="0.1" />
-          ))}
-        </svg>
       </div>
     </section>
   )

@@ -3,12 +3,12 @@ import Gallery from "./components/gallery"
 import Portfolio from "./components/portfolio"
 import Contact from "./components/contact"
 import Footer from "./components/footer"
-import FloralParticles from "./components/floral-particles"
+import AestheticParticles from "./components/aesthetic-particles"
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-background text-foreground floral-bg">
-      <FloralParticles />
+    <main className="min-h-screen apple-bg text-foreground">
+      <AestheticParticles />
       <Hero />
       <Gallery />
       <Portfolio />

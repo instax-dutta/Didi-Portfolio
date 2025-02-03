@@ -3,18 +3,18 @@
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
-const flowers = ["🌸", "🌺", "🌷", "🌹", "🌻", "🌼"]
+const cheerfulEmojis = ["😊", "🌟", "🎉", "🌈", "🦋", "🌺"]
 
 interface Particle {
   x: number
   y: number
   rotation: number
   scale: number
-  flower: string
+  emoji: string
   speed: number
 }
 
-export default function FloralParticles() {
+export default function CheerfulParticles() {
   const particlesRef = useRef<Particle[]>([])
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -37,12 +37,12 @@ export default function FloralParticles() {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       rotation: Math.random() * 360,
-      scale: Math.random() * 0.3 + 0.2, // Reduced scale for smaller screens
-      flower: flowers[Math.floor(Math.random() * flowers.length)],
-      speed: Math.random() * 0.3 + 0.2, // Reduced speed for better performance
+      scale: Math.random() * 0.3 + 0.2,
+      emoji: cheerfulEmojis[Math.floor(Math.random() * cheerfulEmojis.length)],
+      speed: Math.random() * 0.3 + 0.2,
     })
 
-    const particleCount = Math.min(20, Math.floor(window.innerWidth / 50)) // Adjust particle count based on screen size
+    const particleCount = Math.min(20, Math.floor(window.innerWidth / 50))
     for (let i = 0; i < particleCount; i++) {
       particlesRef.current.push(createParticle())
     }
@@ -55,7 +55,7 @@ export default function FloralParticles() {
         ctx.translate(particle.x, particle.y)
         ctx.rotate((particle.rotation * Math.PI) / 180)
         ctx.font = `${20 * particle.scale}px Arial`
-        ctx.fillText(particle.flower, 0, 0)
+        ctx.fillText(particle.emoji, 0, 0)
         ctx.restore()
 
         particle.y += particle.speed
