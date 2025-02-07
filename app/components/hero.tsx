@@ -3,27 +3,48 @@
 import { motion } from "framer-motion"
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
+
   return (
-    <div className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-      <div className="relative z-20 flex flex-col items-center justify-center px-4 text-center">
-        <motion.h1
-          className="mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+    <section className="relative py-20 md:py-24 lg:py-32">
+      <div className="container mx-auto px-4">
+        <motion.div
+          className="max-w-4xl mx-auto text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          SAI ABHIPSA DASH
-        </motion.h1>
-        <motion.p
-          className="max-w-[600px] text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Life Science || Digital Marketing || SEO
-        </motion.p>
+          <motion.h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-text" variants={itemVariants}>
+            SAI ABHIPSA DASH
+          </motion.h1>
+          <motion.p className="text-2xl md:text-3xl text-gray-600 mb-8" variants={itemVariants}>
+            Life Science || Digital Marketing || SEO
+          </motion.p>
+          <motion.div variants={itemVariants}>
+            <a
+              href="#contact"
+              className="gradient-bg text-white font-bold py-3 px-8 rounded-full text-lg hover-lift inline-block"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   )
 }
 

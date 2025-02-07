@@ -49,10 +49,10 @@ export default function AestheticParticles() {
         },
         particles: {
           color: {
-            value: ["#007AFF", "#34C759", "#FF9500", "#AF52DE"], // Apple UI colors
+            value: ["#ffffff", "#f0f0f0", "#e0e0e0", "#d0d0d0"], // Light colors for better visibility
           },
           links: {
-            color: "#007AFF", // Apple blue for links
+            color: "#ffffff",
             distance: 150,
             enable: true,
             opacity: 0.5,

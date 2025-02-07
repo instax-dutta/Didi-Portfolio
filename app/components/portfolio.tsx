@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import AnimatedCard from "./animated-card"
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -58,43 +58,56 @@ export default function Portfolio() {
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
 
   return (
-    <section id="portfolio" className="relative z-20 py-16 sm:py-20">
-      <div className="container mx-auto px-4">
-        <h2 className="mb-8 sm:mb-12 text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+    <section id="portfolio" className="relative py-20 min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2
+          className="text-6xl md:text-7xl font-bold text-center mb-12 gradient-text"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           Portfolio
-        </h2>
-        <div className="mb-8 sm:mb-12 flex flex-wrap justify-center gap-2 sm:gap-4">
+        </motion.h2>
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           {categories.map((category) => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
-              className="text-xs sm:text-sm capitalize modern-shadow"
+              className="capitalize text-lg hover-lift"
             >
               {category}
             </Button>
           ))}
-        </div>
-        <motion.div layout className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        </motion.div>
+        <motion.div
+          layout
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <AnimatePresence>
             {filteredWorks.map((work) => (
               <motion.div
                 key={work.id}
                 layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5 }}
               >
-                <Card className="glass-effect h-full">
-                  <CardContent className="p-4 sm:p-6 flex flex-col justify-between h-full">
-                    <div>
-                      <h3 className="mb-2 text-lg sm:text-xl font-semibold text-gray-900">{work.title}</h3>
-                      <p className="mb-4 text-xs sm:text-sm text-gray-600">{work.description}</p>
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-500">{work.year}</p>
-                  </CardContent>
-                </Card>
+                <AnimatedCard
+                  title={work.title}
+                  description={work.description}
+                  year={work.year}
+                  category={work.category}
+                />
               </motion.div>
             ))}
           </AnimatePresence>
